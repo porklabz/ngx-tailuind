@@ -4,10 +4,11 @@
     "scripts": {
         "ng": "ng",
         "build-tailuind": "ng build ngx-tailuind",
-        "start": "ng serve",
+        "start": "ng serve demo",
         "build": "ng build",
         "test": "ng test",
-        "lint": "ng lint"
+        "lint": "ng lint",
+        "e2e": "ng e2e"
     },
     "private": true,
     "dependencies": {
