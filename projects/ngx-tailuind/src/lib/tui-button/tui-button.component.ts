@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'lib-tui-button',
+    selector: 'tui-button',
     templateUrl: './tui-button.component.html',
-    styleUrls: ['./tui-button.component.css']
+    styleUrls: ['./tui-button.component.scss']
 })
 export class TuiButtonComponent implements OnInit {
 

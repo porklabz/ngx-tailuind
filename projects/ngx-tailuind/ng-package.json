@@ -1,7 +1,10 @@
 {
     "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
     "dest": "../../dist/ngx-tailuind",
-    "assets": ["./src/styles/ngx-tailuind.scss", "./schematics/**/*"],
+    "assets": [
+        "./schematics/**/*",
+        "./**/*.scss"
+    ],
     "keepLifecycleScripts": true,
     "lib": {
         "entryFile": "src/public-api.ts",

@@ -66,6 +66,9 @@ export function ngAdd(options: any): Rule {
                     0,
                     `@tailwind base;
 @tailwind components;
+
+@import "~ngx-tailuind";
+
 @tailwind utilities;
 @tailwind screens;\n`
                 );
@@ -75,19 +78,17 @@ export function ngAdd(options: any): Rule {
                 tree.commitUpdate(recorder);
         }
 
-        if (willAppend) {
+        if (willAppend && styleData.search('ngx-tailuind') < 0) {
             const insertion = new InsertChange(
                 stylePath,
                 pos,
-                `\n\n.bg-teste { @apply bg-green-700 text-white };\n`
+                `\n\n@import "~ngx-tailuind";\n`
             );
 
             const recorder = tree.beginUpdate(stylePath);
             recorder.insertLeft(pos, insertion.toAdd);
             tree.commitUpdate(recorder);
         }
-        // console.log('data', styleData);
-        // console.log('find', styleData.search('@tailwind components'));
 
         context.addTask(new NodePackageInstallTask());
     };

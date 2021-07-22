@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
 
-.bg-teste { @apply bg-green-700 text-white };
+@import "~ngx-tailuind";
 
 @tailwind utilities;
 @tailwind screens;
-/* You can add global styles to this file, and also import other style files */
