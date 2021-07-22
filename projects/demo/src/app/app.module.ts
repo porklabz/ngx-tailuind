@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {NgxTailuindModule} from 'ngx-tailuind';
 
 @NgModule({
     declarations: [
@@ -10,7 +11,8 @@ import {AppComponent} from './app.component';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NgxTailuindModule
     ],
     providers: [],
     bootstrap: [AppComponent]

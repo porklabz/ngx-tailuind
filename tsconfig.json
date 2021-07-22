@@ -12,8 +12,7 @@
         "importHelpers": true,
         "paths": {
             "ngx-tailuind": [
-                "dist/ngx-tailuind/ngx-tailuind",
-                "dist/ngx-tailuind"
+                "./node_modules/ngx-tailuind"
             ]
         },
         "target": "es2015",
@@ -24,6 +23,7 @@
         ]
     },
     "angularCompilerOptions": {
-        "enableI18nLegacyMessageIdFormat": false
+        "enableI18nLegacyMessageIdFormat": false,
+        "preserveSymlinks": true
     }
 }

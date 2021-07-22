@@ -1,12 +1,19 @@
 {
     "name": "ngx-tailuind",
     "version": "0.0.1",
+    "schematics": "./schematics/collection.json",
+    "scripts": {
+        "build": "tsc -p tsconfig.schematics.json"
+    },
     "peerDependencies": {
         "@angular/common": "^11.1.2",
-        "@angular/core": "^11.1.2"
+        "@angular/core": "^11.1.2",
+        "tailwindcss": "^2.1.4"
     },
     "dependencies": {
-        "tailwindcss": "^2.2.4",
         "tslib": "^2.0.0"
+    },
+    "ng-add": {
+        "save": "devDependencies"
     }
 }
