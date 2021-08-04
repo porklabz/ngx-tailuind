@@ -1,4 +1,14 @@
-import {Attribute, Component, HostBinding, Input, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {
+    Attribute,
+    Component,
+    HostBinding,
+    Input,
+    OnInit,
+    Output,
+    ViewChild,
+    EventEmitter,
+    HostListener
+} from '@angular/core';
 
 @Component({
     selector: 'tui-button',
@@ -9,13 +19,13 @@ export class TuiButtonComponent implements OnInit {
 
     @ViewChild('template', {static: true}) template;
     @ViewChild('ink', {static: true}) ink;
-    // @TODO Loaders
     @Input() block = false;
     @Input() depressed = false;
     @Input() disabled = false;
     @Input() elevation = 'lg';
     @Input() fab = false;
     @Input() icon = false;
+    @Input() loading = false;
     @Input() outlined = false;
     @Input() plain = false;
     @Input() raised = false;
@@ -24,13 +34,11 @@ export class TuiButtonComponent implements OnInit {
     @Input() squared = false;
     @Input() type = 'default';
     @Input() text = false;
+    @Output() clickEvent = new EventEmitter<any>();
 
-    constructor(
-                @Attribute('class') public rootCssClass: string) {
-    }
+    constructor(@Attribute('class') public rootCssClass: string) {}
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     @HostBinding('attr.class')
     get cssClass(): string[] {
@@ -85,11 +93,24 @@ export class TuiButtonComponent implements OnInit {
     }
 
     mouseDownEvent($event): void {
+        if (this.disabled !== false) {
+            return;
+        }
         const inkEl = this.ink.nativeElement;
         inkEl.classList.remove('animate');
         inkEl.style.left = ($event.offsetX - inkEl.offsetWidth / 2) + 'px';
         inkEl.style.top = ($event.offsetY - inkEl.offsetHeight / 2) + 'px';
         inkEl.classList.add('animate');
+    }
+
+    @HostListener('click', ['$event'])
+    onClick($event): void {
+        if (this.disabled !== false) {
+            $event.stopPropagation();
+            $event.preventDefault();
+            return;
+        }
+        this.clickEvent.emit($event);
     }
 
 }
