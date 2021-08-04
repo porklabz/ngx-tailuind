@@ -1,1 +1,84 @@
-@import "./src/lib/tui-button/tui-button.component";
+.animate {
+    animation: ripple 0.65s linear;
+}
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        transform: scale(5);
+    }
+}
+
+.tui-btn {
+    @apply border rounded relative overflow-hidden transition-all duration-100 tui-default tui-states-default tui-border-default tui-btn-md;
+
+    .ink {
+        @apply absolute block rounded-full opacity-60;
+        transform: scale(0);
+    }
+
+    &.tui-btn-xs {
+        @apply px-1 py-0 text-xs;
+    }
+
+    &.tui-btn-sm {
+        @apply px-2 py-0.5 text-sm;
+    }
+
+    &.tui-btn-md {
+        @apply px-4 py-1;
+    }
+
+    &.tui-btn-lg {
+        @apply px-6 py-1.5 text-lg;
+    }
+
+    &.tui-btn-squared {
+        @apply rounded-none;
+    }
+
+    &.tui-btn-primary {
+        @apply tui-primary tui-states-primary tui-border-primary;
+    }
+
+    &.tui-btn-secondary {
+        @apply tui-secondary tui-states-secondary tui-border-secondary;
+    }
+
+    &.tui-btn-success {
+        @apply tui-success tui-states-success tui-border-success;
+    }
+
+    &.tui-btn-danger {
+        @apply tui-danger tui-states-danger tui-border-danger;
+    }
+
+    &.tui-btn-warning {
+        @apply tui-warning tui-states-warning tui-border-warning;
+    }
+
+    &.tui-btn-info {
+        @apply tui-info tui-states-info tui-border-info;
+    }
+
+    &.tui-btn-light {
+        @apply tui-light tui-states-light tui-border-light;
+    }
+
+    &.tui-btn-dark {
+        @apply tui-dark tui-states-dark tui-border-dark;
+    }
+
+    &.tui-btn-link {
+        @apply border-0 tui-link tui-states-link hover:underline;
+    }
+
+    &.tui-btn-outlined {
+        @apply bg-transparent;
+    }
+
+}
+
+.tui-alert {
+
+}

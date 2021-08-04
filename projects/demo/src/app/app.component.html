@@ -1,7 +1,42 @@
-<div>
-    <lib-ngx-tailuind></lib-ngx-tailuind>
-    <tui-button></tui-button>
-    <div class="bg-yellow-600">AAAAAAAAAAAAAAA</div>
-    <div class="bg-teste">AAAAAAAAAAAAAAA</div>
-    <div class="tui-button">AAAAAAAAAAAAAAA</div>
+<div class="flex flex-col space-y-2 m-2">
+<!--    <div class="flex flex-wrap space-x-2">-->
+<!--        <div class="w-full p-2 my-2 uppercase tui-default">Default</div>-->
+<!--        <div><button class="tui-btn tui-btn-sm">Small</button></div>-->
+<!--        <div><button class="tui-btn">Button</button></div>-->
+<!--        <div><button class="tui-btn" disabled>Disabled</button></div>-->
+<!--        <div><button class="tui-btn tui-btn-lg">Large</button></div>-->
+<!--        <div><button class="tui-btn tui-btn-lg tui-btn-squared">Large squared</button></div>-->
+<!--    </div>-->
+<!--    <div class="flex flex-wrap space-x-2" *ngFor="let tipo of tipos">-->
+<!--        <div class="w-full p-2 my-2 uppercase" [ngClass]="'tui-' + tipo">{{tipo}}</div>-->
+<!--        <div><button [ngClass]="'tui-btn-' + tipo" class="tui-btn tui-btn-sm">Small</button></div>-->
+<!--        <div><button [ngClass]="'tui-btn-' + tipo" class="tui-btn">Button</button></div>-->
+<!--        <div><button [ngClass]="'tui-btn-' + tipo" class="tui-btn" disabled>Disabled</button></div>-->
+<!--        <div><button [ngClass]="'tui-btn-' + tipo" class="tui-btn tui-btn-lg">Large</button></div>-->
+<!--        <div><button [ngClass]="'tui-btn-' + tipo" class="tui-btn tui-btn-lg tui-btn-squared">Large squared</button></div>-->
+<!--    </div>-->
+    <div class="flex flex-wrap space-x-2">
+        <div class="w-full p-2 my-2 uppercase tui-default">Default</div>
+        <tui-button size="xs">Extra small</tui-button>
+        <tui-button size="sm">Small</tui-button>
+        <tui-button>Button</tui-button>
+        <tui-button outlined>Outlined</tui-button>
+        <tui-button disabled>Disabled</tui-button>
+        <tui-button squared>Squared</tui-button>
+        <tui-button size="lg">Large</tui-button>
+    </div>
+    <div class="flex flex-wrap space-x-2" *ngFor="let tipo of tipos">
+        <div class="w-full p-2 my-2 uppercase" [ngClass]="'tui-' + tipo">{{tipo}}</div>
+        <tui-button [type]="tipo" size="xs">Extra small</tui-button>
+        <tui-button [type]="tipo" size="sm">Small</tui-button>
+        <tui-button [type]="tipo">Button</tui-button>
+        <tui-button [type]="tipo" outlined>Outlined</tui-button>
+        <tui-button [type]="tipo" disabled>Disabled</tui-button>
+        <tui-button [type]="tipo" squared>Squared</tui-button>
+        <tui-button [type]="tipo" size="lg">Large</tui-button>
+    </div>
+</div>
+<div class="p-4 flex space-x-2">
+<!--    <tui-button size="sm" type="danger">Teste</tui-button>-->
+
 </div>

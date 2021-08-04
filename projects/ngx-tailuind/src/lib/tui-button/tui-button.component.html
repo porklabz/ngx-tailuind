@@ -1,3 +1,7 @@
-<button class="bg-green-600 text-white p-8">
-Opa!
+<button [ngClass]="cssClass"
+        [disabled]="disabled !== false"
+        (mousedown)="mouseDownEvent($event)">
+    <ng-content></ng-content>
+    <ng-content select="[loader]"></ng-content>
+    <span class="ink h-full w-full" [ngClass]="'tui-' + type + '-clear'" #ink>&nbsp;</span>
 </button>
