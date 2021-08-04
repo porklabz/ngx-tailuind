@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
 
-@import "~ngx-tailuind";
+//@import "~ngx-tailuind";
+@import "./../../ngx-tailuind/index";
 
 @tailwind utilities;
 @tailwind screens;

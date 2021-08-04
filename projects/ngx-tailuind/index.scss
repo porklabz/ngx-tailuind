@@ -10,7 +10,7 @@
 }
 
 .tui-btn {
-    @apply border rounded relative overflow-hidden transition-all duration-100 tui-default tui-states-default tui-border-default tui-btn-md;
+    @apply border rounded relative uppercase tracking-wide font-medium w-full overflow-hidden transition-all duration-100 flex items-center justify-center tui-default tui-states-default tui-border-default tui-btn-md;
 
     .ink {
         @apply absolute block rounded-full opacity-60;
@@ -19,22 +19,60 @@
 
     &.tui-btn-xs {
         @apply px-1 py-0 text-xs;
+        &.tui-btn-icon, &.tui-btn-fab {
+            @apply w-8 h-8 px-0 py-0;
+            &> * {
+                @apply w-4 h-4;
+            }
+        }
     }
 
     &.tui-btn-sm {
         @apply px-2 py-0.5 text-sm;
+        &.tui-btn-icon, &.tui-btn-fab {
+            @apply w-10 h-10 px-0 py-0;
+            &> * {
+                @apply w-5 h-5;
+            }
+        }
     }
 
     &.tui-btn-md {
         @apply px-4 py-1;
+        &.tui-btn-icon, &.tui-btn-fab {
+            @apply w-12 h-12 px-0 py-0;
+            &> * {
+                @apply w-6 h-6;
+            }
+        }
     }
 
     &.tui-btn-lg {
-        @apply px-6 py-1.5 text-lg;
+        @apply px-5 py-1.5 text-lg;
+        &.tui-btn-icon, &.tui-btn-fab {
+            @apply w-14 h-14 px-0 py-0;
+            &> * {
+                @apply w-7 h-7;
+            }
+        }
+    }
+
+    &.tui-btn-xl {
+        @apply px-6 py-2.5 text-xl;
+        &.tui-btn-icon, &.tui-btn-fab {
+            @apply w-16 h-16 px-0 py-0;
+            &> * {
+                @apply w-8 h-8;
+            }
+        }
     }
 
     &.tui-btn-squared {
         @apply rounded-none;
+    }
+
+    &.tui-btn-rounded {
+        @apply rounded-2xl;
     }
 
     &.tui-btn-primary {
@@ -77,6 +115,16 @@
         @apply bg-transparent;
     }
 
+    &.tui-btn-text {
+        @apply bg-transparent border-none;
+    }
+
+    &.tui-btn-plain {
+        @apply bg-transparent border-none;
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
 }
 
 .tui-alert {

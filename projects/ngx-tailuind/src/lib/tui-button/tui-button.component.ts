@@ -1,17 +1,20 @@
-import {Attribute, Component, HostBinding, Input, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Attribute, Component, HostBinding, Input, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'tui-button',
-    templateUrl: './tui-button.component.html'
+    templateUrl: './tui-button.component.html',
+    styles: [':host:not([block]) { display: inline-block; }']
 })
 export class TuiButtonComponent implements OnInit {
 
     @ViewChild('template', {static: true}) template;
     @ViewChild('ink', {static: true}) ink;
+    // @TODO Loaders
     @Input() block = false;
     @Input() depressed = false;
     @Input() disabled = false;
-    @Input() floating = false;
+    @Input() elevation = 'lg';
+    @Input() fab = false;
     @Input() icon = false;
     @Input() outlined = false;
     @Input() plain = false;
@@ -20,9 +23,10 @@ export class TuiButtonComponent implements OnInit {
     @Input() size = 'md';
     @Input() squared = false;
     @Input() type = 'default';
-    @Input() tile = false;
+    @Input() text = false;
 
-    constructor(@Attribute('class') public rootCssClass: string) {
+    constructor(
+                @Attribute('class') public rootCssClass: string) {
     }
 
     ngOnInit(): void {
@@ -36,6 +40,7 @@ export class TuiButtonComponent implements OnInit {
             'tui-btn-' + this.type,
             this.rootCssClass || '',
             this.disabled !== false ? 'disabled' : '',
+            this.elevation ? 'shadow-' + this.elevation : '',
         ];
         if (this.outlined !== false) {
             css.push('tui-btn-outlined');
@@ -43,6 +48,38 @@ export class TuiButtonComponent implements OnInit {
         }
         if (this.squared !== false) {
             css.push('tui-btn-squared');
+        }
+        if (this.rounded !== false) {
+            css.push('tui-btn-rounded');
+        }
+        if (this.block !== false) {
+            css.push('block');
+        }
+        if (this.icon !== false) {
+            this.text = true;
+            css.push('rounded-full shadow-none');
+            css.push('tui-btn-icon');
+        }
+        if (this.fab !== false) {
+            css.push('rounded-full shadow-none');
+            css.push('tui-btn-fab');
+        }
+        if (this.plain !== false) {
+            this.depressed = true;
+            css.push('tui-btn-plain');
+            css.push('tui-text-' + this.type + '-base');
+        }
+        if (this.text !== false) {
+            css.push('tui-btn-text');
+            css.push('shadow-none');
+            css.push('hover:tui-' + this.type + '-clean');
+            css.push('tui-text-' + this.type + '-base');
+        }
+        if (this.depressed !== false) {
+            css.push('shadow-none');
+        }
+        if (this.raised !== false) {
+            css.push('hover:shadow-xl');
         }
         return css;
     }
